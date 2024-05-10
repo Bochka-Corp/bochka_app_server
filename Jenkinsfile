@@ -1,25 +1,23 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Install dependencies') {
             steps {
-                echo 'Building the project...'
-                // Здесь могут быть инструкции по сборке вашего проекта, например:
-                // sh 'make'
+                sh '''
+                python -m venv .venv
+                source .venv/bin/activate
+                pip install -r requirements.txt
+                '''
             }
         }
-        stage('Test') {
+
+        stage('Start FastAPI server') {
             steps {
-                echo 'Testing the project...'
-                // Здесь могут быть инструкции по тестированию вашего проекта, например:
-                // sh 'make test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the project...'
-                // Здесь могут быть инструкции по деплою вашего проекта на виртуальной машине, например:
-                // sh 'make deploy'
+                sh '''
+                source .venv/bin/activate
+                uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+                '''
             }
         }
     }
