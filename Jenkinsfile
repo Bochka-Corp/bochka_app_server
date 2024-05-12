@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                 python3 -m venv .venv
-                source .venv/bin/activate
+                . .venv/bin/activate
                 pip install -r requirements.txt
                 '''
             }
@@ -15,7 +15,7 @@ pipeline {
         stage('Start FastAPI server') {
             steps {
                 sh '''
-                source .venv/bin/activate
+                . .venv/bin/activate
                 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
                 '''
             }
