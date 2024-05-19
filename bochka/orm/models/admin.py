@@ -15,7 +15,7 @@ class Admin(BaseClass):
     phone_number = Column(String, nullable=False)
     password_hash = Column(String, nullable=False)
 
-    hotels = relationship("Hotel", back_populates="Admin", cascade_backrefs=False)
+    hotels = relationship("Hotel", back_populates="admins", cascade_backrefs=False)
 
     def set_password(self, password):
         self.password_hash = pbkdf2_sha256.hash(password)

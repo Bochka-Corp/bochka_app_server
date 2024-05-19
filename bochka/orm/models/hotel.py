@@ -19,4 +19,5 @@ class Hotel(BaseClass):
     description = Column(Text, nullable=False)
     hotel_admin_id = Column(UUID, Admin.id, nullable=False, default=None)
 
-    hotel_amenities = relationship("HotelAmenity", back_populates="hotel", cascade_backrefs=False)
+    hotel_amenities = relationship("HotelAmenity", back_populates="hotels", cascade_backrefs=False)
+    hotel_room_reservations = relationship("RoomReservation", back_populates="hotels", cascade_backrefs=False)
