@@ -1,5 +1,6 @@
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
 from sqlalchemy import Column, String, Float, Text, ForeignKey, UUID
+from sqlalchemy.orm import relationship
 
 from bochka.orm.baseclass import BaseClass
 from bochka.orm.models.admin import Admin
@@ -17,3 +18,5 @@ class Hotel(BaseClass):
     rating = Column(Float, nullable=False)
     description = Column(Text, nullable=False)
     hotel_admin_id = Column(UUID, Admin.id, nullable=False, default=None)
+
+    hotel_amenities = relationship("HotelAmenity", back_populates="hotel", cascade_backrefs=False)
