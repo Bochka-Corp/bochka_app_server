@@ -1,12 +1,12 @@
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer, Date
 from sqlalchemy.orm import relationship
 
 from bochka.orm.baseclass import BaseClass
 
 
-class Admin(BaseClass):
-    __tablename__ = "admins"
+class User(BaseClass):
+    __tablename__ = "users"
 
     first_name = Column(String, nullable=False)
     second_name = Column(String, nullable=False)
@@ -14,8 +14,10 @@ class Admin(BaseClass):
     email = Column(String, nullable=False)
     phone_number = Column(String, nullable=False)
     password_hash = Column(String, nullable=False)
-
-    hotels = relationship("Hotel", back_populates="Admin", cascade_backrefs=False)
+    gender = Column(String, nullable=False)
+    age = Column(Integer, nullable=False)
+    birth_date = Column(Date, nullable=False)
+    marital_status = Column(String, nullable=False, default=None)
 
     def set_password(self, password):
         self.password_hash = pbkdf2_sha256.hash(password)
