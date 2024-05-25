@@ -1,5 +1,6 @@
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
 from sqlalchemy import Column, String, Integer, Date
+from sqlalchemy_imageattach.entity import image_attachment
 
 from bochka.orm.baseclass import BaseClass
 
@@ -15,6 +16,8 @@ class User(BaseClass):
     age = Column(Integer, nullable=False)
     birth_date = Column(Date, nullable=False)
     marital_status = Column(String, nullable=False, default=None)
+
+    picture = image_attachment("UserImage")
 
     def set_password(self, password):
         self.password_hash = pbkdf2_sha256.hash(password)

@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy_imageattach.entity import Image
 from bochka.orm.baseclass import BaseClass
 from bochka.orm.models.hotel import Hotel
+from bochka.orm.models.user import User
 
 
 class HotelImage(BaseClass, Image):
@@ -13,3 +14,8 @@ class HotelImage(BaseClass, Image):
 class RoomImage(BaseClass, Image):
     room_id = Column(UUID, Hotel.id, nullable=False)
     room = relationship("Room", back_populates="room_images", cascade_backrefs=False)
+
+
+class UserImage(BaseClass, Image):
+    user_id = Column(UUID, User.id, nullable=False)
+    user = relationship("User", back_populates="user_images", cascade_backrefs=False)
