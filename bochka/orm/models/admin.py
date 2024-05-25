@@ -6,8 +6,6 @@ from bochka.orm.baseclass import BaseClass
 
 
 class Admin(BaseClass):
-    __tablename__ = "admins"
-
     first_name = Column(String, nullable=False)
     second_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)

@@ -5,8 +5,6 @@ from bochka.orm.baseclass import BaseClass
 
 
 class User(BaseClass):
-    __tablename__ = "users"
-
     first_name = Column(String, nullable=False)
     second_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
