@@ -10,6 +10,8 @@ class Hotel(BaseClass):
 
     name = Column(String, nullable=False)
     phone_number = Column(String, nullable=False)
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
     country = Column(String, nullable=False)
     city = Column(String, nullable=False)
     street = Column(String, nullable=False)
