@@ -1,5 +1,4 @@
-from passlib.handlers.pbkdf2 import pbkdf2_sha256
-from sqlalchemy import Column, String, Float, Text, ForeignKey, UUID
+from sqlalchemy import Column, String, Float, Text, UUID
 from sqlalchemy.orm import relationship
 
 from bochka.orm.baseclass import BaseClass

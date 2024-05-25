@@ -1,6 +1,4 @@
-from passlib.handlers.pbkdf2 import pbkdf2_sha256
-from sqlalchemy import Column, String, Integer, Date, Boolean
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, Boolean
 
 from bochka.orm.baseclass import BaseClass
 from bochka.orm.models.amenity_type import AmenityType
