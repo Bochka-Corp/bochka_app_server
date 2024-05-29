@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "bochka-app-server"
+version = "0.1.0"
+description = ""
+authors = ["G4st3R aporyadin003@gmail.com"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.30"
+pydantic = "^2.7.1"
+fastapi = "^0.111.0"
+passlib = "^1.7.4"
+sqlalchemy-imageattach = "^1.1.0"
+alembic = "^1.13.1"
+psycopg2-binary = "^2.9.9"
+uvicorn = "^0.29.0"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
