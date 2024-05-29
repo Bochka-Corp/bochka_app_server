@@ -2,10 +2,10 @@ from passlib.handlers.pbkdf2 import pbkdf2_sha256
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
-from bochka.orm.baseclass import BaseClass
+from bochka.orm.models.baseclass import Base
 
 
-class Admin(BaseClass):
+class Admin(Base):
     first_name = Column(String, nullable=False)
     second_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
