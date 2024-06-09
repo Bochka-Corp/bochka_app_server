@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, ForeignKey, UUID
+from sqlalchemy import Column, Boolean, ForeignKey, UUID
 
 from bochka.orm.models.baseclass import Base
 from bochka.orm.models.amenity_type import AmenityType

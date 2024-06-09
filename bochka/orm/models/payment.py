@@ -1,5 +1,4 @@
 from sqlalchemy import Column, UUID, DateTime, String, Float, ForeignKey
-# from sqlalchemy_imageattach.entity import image_attachment
 
 from bochka.orm.models.baseclass import Base
 from bochka.orm.models.booking import Booking
@@ -16,4 +15,3 @@ class Payment(Base):
 class PaymentReceipt(Base):
     payment_id = Column(UUID, ForeignKey(Payment.id), nullable=False)
 
-    # picture = image_attachment("ReceiptImage")

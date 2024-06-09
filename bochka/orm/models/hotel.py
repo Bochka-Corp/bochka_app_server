@@ -1,6 +1,5 @@
 from sqlalchemy import Column, String, Float, Text, UUID, ForeignKey
 from sqlalchemy.orm import relationship
-# from sqlalchemy_imageattach.entity import image_attachment
 
 from bochka.orm.models.baseclass import Base
 from bochka.orm.models.admin import Admin
@@ -18,8 +17,6 @@ class Hotel(Base):
     rating = Column(Float, nullable=False)
     description = Column(Text, nullable=False)
     hotel_admin_id = Column(UUID, ForeignKey(Admin.id), nullable=False, default=None)
-
-    # picture = image_attachment("HotelImage")
 
     hotel_amenities = relationship("HotelAmenity", back_populates="hotels", cascade_backrefs=False)
     hotel_room_reservations = relationship("RoomReservation", back_populates="hotels", cascade_backrefs=False)

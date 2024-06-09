@@ -1,5 +1,4 @@
 from sqlalchemy import Column, UUID, Date, Float, Integer, Boolean, ForeignKey
-# from sqlalchemy_imageattach.entity import image_attachment
 
 from bochka.orm.models.baseclass import Base
 from bochka.orm.models.hotel import Hotel
@@ -15,6 +14,4 @@ class RoomReservation(Base):
     floor = Column(Integer, nullable=False)
     is_booked = Column(Boolean, nullable=False)
     guests_count = Column(Integer, nullable=False)
-
-    # picture = image_attachment("RoomImage")
 

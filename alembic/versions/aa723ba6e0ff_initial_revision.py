@@ -1,8 +1,8 @@
-"""bochka app ORM inital revision
+"""initial revision
 
-Revision ID: bc5942289cdb
+Revision ID: aa723ba6e0ff
 Revises: 
-Create Date: 2024-05-25 18:19:34.276665
+Create Date: 2024-06-09 19:09:17.499615
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'bc5942289cdb'
+revision: str = 'aa723ba6e0ff'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
