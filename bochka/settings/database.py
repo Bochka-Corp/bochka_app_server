@@ -9,6 +9,7 @@ class DatabaseSettings(BaseSettings):
 
     class Config:
         env_prefix = "DB_"
+        env_file = ".env"
 
     def get_db_url(self) -> str:
         return f"postgresql://{self.username}:{self.password}@{self.host}:{self.port}"
