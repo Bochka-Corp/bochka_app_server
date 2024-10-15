@@ -1,16 +1,14 @@
-FROM python:3.12
+FROM maven:3.9-amazoncorretto-21 AS build
+WORKDIR /app
 
-WORKDIR /usr/src/app
+COPY pom.xml .
+COPY src ./src
 
-RUN apt-get update && apt-get install -y curl && \
-    curl -sSL https://install.python-poetry.org | python3 -
+RUN mvn clean package -DskipTests
 
-ENV PATH="/root/.local/bin:$PATH"
+FROM amazoncorretto:21-alpine-jdk
+WORKDIR /app
 
-COPY pyproject.toml ../poetry.lock ./
+COPY --from=build /app/target/*.jar app.jar
 
-RUN poetry config virtualenvs.create false && poetry install --no-root
-
-COPY .. .
-
-CMD ["uvicorn", "bochka.main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["java","-jar","/app/app.jar"]
